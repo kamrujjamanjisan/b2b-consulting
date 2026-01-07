@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Consultancy Landing Page</title>
+    <meta name="description" content="Computer System Validation - Made to Win. 50% faster, 100% compliant. Performance System Validation as methodology.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: #1C1917;
+            background-color: #FAFAF9;
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .pulse-emergency {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(220, 38, 38, 0); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- === NAVIGATION === -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-stone-200 z-50 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 bg-black text-white flex items-center justify-center font-bold text-xl group-hover:bg-blue-700 transition-colors">D</div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg leading-none tracking-tight">DANIEL HERRMANN</span>
+                        <span class="text-[10px] uppercase tracking-widest text-stone-500">Consulting</span>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#pain" class="text-sm font-medium text-stone-600 hover:text-black transition-colors">Challenges</a>
+                    <a href="#methodology" class="text-sm font-medium text-stone-600 hover:text-black transition-colors">Methodology</a>
+                    <a href="#rescue" class="text-sm font-medium text-stone-600 hover:text-black transition-colors">Go-Live Rescue</a>
+                    <a href="#team" class="text-sm font-medium text-stone-600 hover:text-black transition-colors">Team</a>
+                    <a href="#faq" class="text-sm font-medium text-stone-600 hover:text-black transition-colors">FAQ</a>
+                    <a href="#" target="_blank" class="bg-blue-700 text-white px-6 py-3 text-sm font-bold hover:bg-black transition-colors shadow-lg">
+                        Let's Talk
+                    </a>
+                </div>
+
+                <button class="md:hidden p-2 text-stone-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- === HERO === -->
+    <section class="relative min-h-screen bg-stone-950 flex flex-col justify-center items-center text-center px-4 pt-20">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-stone-800/20 via-stone-950 to-stone-950"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto space-y-8">
+            <div class="fade-in-up">
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-900/30 border border-blue-800 text-blue-300 text-xs font-bold tracking-[0.2em] uppercase mb-6">
+                    Powered by Performance System Validation
+                </span>
+                <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black text-white tracking-tight leading-[1.1]">
+                    COMPUTER SYSTEM<br>
+                    VALIDATION
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400 mt-2">MADE TO WIN.</span>
+                </h1>
+            </div>
+
+            <p class="text-xl sm:text-2xl text-stone-400 font-light max-w-2xl mx-auto fade-in-up delay-100">
+                Compliant. Lean. On Point.<br>
+                <span class="text-white font-medium">The reason your system goes live.</span>
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 fade-in-up delay-200">
+                <a href="#pain" class="group relative px-8 py-4 bg-white text-stone-950 font-bold text-lg hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]">
+                    WE ENABLE THE GO-LIVE
+                </a>
+                <a href="#rescue" class="px-8 py-4 border-2 border-red-500 text-red-400 font-bold text-lg hover:bg-red-500 hover:text-white transition-all pulse-emergency">
+                    GO-LIVE AT RISK?
+                </a>
+            </div>
+
+            <!-- Trust Bar -->
+            <div class="pt-16 pb-8 fade-in-up delay-300">
+                <p class="text-xs uppercase tracking-widest text-stone-600 mb-6">Trusted by</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 sm:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                    <span class="text-xl font-bold text-white tracking-tight">Johnson & Johnson</span>
+                    <span class="text-xl font-bold text-white tracking-tight">Boehringer Ingelheim</span>
+                    <span class="text-xl font-bold text-white tracking-tight">HP</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-stone-500">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
+
+    <!-- === SECTION: PAIN MATRIX (Dark Glassmorphism) === -->
+    <section id="pain" class="py-32 px-4 bg-[#0a0a0f] relative overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[128px]"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-[128px]"></div>
+            <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-20">
+                <span class="text-xs font-medium text-blue-400/80 uppercase tracking-[0.3em] mb-4 block">The Reality</span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                    Pain Points That Prevent<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Project Success</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden">
+                <!-- Pain 1: Compliance Gaps -->
+                <div class="group bg-[#0a0a0f]/80 backdrop-blur-xl p-8 hover:bg-white/[0.03] transition-all duration-500 relative">
+                    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-px h-8 bg-gradient-to-b from-red-500 to-red-500/0"></div>
+                        <span class="text-[11px] font-medium text-red-400/80 uppercase tracking-widest">Risk</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors">Dangerous Compliance Gaps</h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">Lack of experience leads to massive compliance risks. Critical aspects are overlooked while non-critical topics are over-documented.</p>
+                </div>
+
+                <!-- Pain 2: Slow Progress -->
+                <div class="group bg-[#0a0a0f]/80 backdrop-blur-xl p-8 hover:bg-white/[0.03] transition-all duration-500 relative">
+                    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-px h-8 bg-gradient-to-b from-orange-500 to-orange-500/0"></div>
+                        <span class="text-[11px] font-medium text-orange-400/80 uppercase tracking-widest">Efficiency</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors">Slow Progress</h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">The project is stuck in the slow lane instead of cruising at full speed. The experience to accelerate is missing. Every day of delay costs money.</p>
+                </div>
+
+                <!-- Pain 3: Unclear Responsibilities -->
+                <div class="group bg-[#0a0a0f]/80 backdrop-blur-xl p-8 hover:bg-white/[0.03] transition-all duration-500 relative">
+                    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-px h-8 bg-gradient-to-b from-yellow-500 to-yellow-500/0"></div>
+                        <span class="text-[11px] font-medium text-yellow-400/80 uppercase tracking-widest">Structure</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors">Unclear Responsibilities</h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">Nobody knows who does what. Documentation, reviews and approvals are not properly managed. Result: duplicate work and frustration.</p>
+                </div>
+
+                <!-- Pain 4: Insufficient Training -->
+                <div class="group bg-[#0a0a0f]/80 backdrop-blur-xl p-8 hover:bg-white/[0.03] transition-all duration-500 relative">
+                    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-px h-8 bg-gradient-to-b from-purple-500 to-purple-500/0"></div>
+                        <span class="text-[11px] font-medium text-purple-400/80 uppercase tracking-widest">Knowledge</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors">Insufficient Training</h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">Missing knowledge about methods and tools. Official trainings aren't enough, and SOP references frustrate more than they help.</p>
+                </div>
+
+                <!-- Pain 5: Frustrating Communication -->
+                <div class="group bg-[#0a0a0f]/80 backdrop-blur-xl p-8 hover:bg-white/[0.03] transition-all duration-500 relative">
+                    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-px h-8 bg-gradient-to-b from-blue-500 to-blue-500/0"></div>
+                        <span class="text-[11px] font-medium text-blue-400/80 uppercase tracking-widest">Communication</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors">Frustrating Communication</h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">Validation sounds like a foreign language? Business, IT and PM don't understand what Validation is talking about. This leads to roadblocks.</p>
+                </div>
+
+                <!-- Pain 6: Chaos Instead of Control -->
+                <div class="group bg-[#0a0a0f]/80 backdrop-blur-xl p-8 hover:bg-white/[0.03] transition-all duration-500 relative">
+                    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-px h-8 bg-gradient-to-b from-cyan-500 to-cyan-500/0"></div>
+                        <span class="text-[11px] font-medium text-cyan-400/80 uppercase tracking-widest">Control</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors">Chaos Instead of Control</h3>
+                    <p class="text-stone-400 text-sm leading-relaxed">The project runs chaotically, tasks are completely uncontrolled. Everything is left to chance – until the auditor shows up.</p>
+                </div>
+            </div>
+
+            <!-- Bottom Statement -->
+            <div class="mt-16 text-center">
+                <div class="inline-flex items-center gap-4 px-8 py-4 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-sm">
+                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                    <span class="text-white/80 text-sm">The good news: <span class="text-white font-medium">It doesn't have to be this way.</span></span>
+                    <a href="#methodology" class="text-blue-400 hover:text-blue-300 font-medium text-sm transition-colors">
+                        Our methodology →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION: METHODOLOGY (PSV) === -->
+    <section id="methodology" class="py-24 px-4 bg-stone-950 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-sm font-bold text-blue-400 uppercase tracking-widest">Our Methodology</span>
+                <h2 class="text-3xl sm:text-5xl font-black mt-4 mb-6">Performance System Validation</h2>
+                <p class="text-xl text-stone-400 max-w-3xl mx-auto">
+                    "We don't validate to produce paper.<br>
+                    <span class="text-white font-bold">We validate to unleash performance."</span>
+                </p>
+            </div>
+
+            <!-- Core Problem -->
+            <div class="bg-gradient-to-r from-red-900/30 to-stone-900 border border-red-800/50 p-8 mb-12 rounded-lg">
+                <h3 class="text-xl font-bold text-red-400 mb-4">The Real Problem</h3>
+                <p class="text-stone-300 mb-4">
+                    The methodology (V-Model, Agile, Waterfall) is rarely the issue. <span class="text-white font-bold">The problem is focus.</span>
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div class="bg-black/30 p-4 rounded">
+                        <p class="text-red-400 font-bold mb-2">What often happens:</p>
+                        <ul class="text-stone-400 text-sm space-y-2">
+                            <li>• Non-critical functions are over-documented</li>
+                            <li>• Screenshots for standard processes (vendor already tested that)</li>
+                            <li>• Patient-critical aspects are overlooked</li>
+                            <li>• "We've always done it this way"</li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-900/30 p-4 rounded">
+                        <p class="text-blue-400 font-bold mb-2">What we do differently:</p>
+                        <ul class="text-stone-300 text-sm space-y-2">
+                            <li>• We know exactly where to look</li>
+                            <li>• Critical processes: test and document thoroughly</li>
+                            <li>• Non-critical processes: leverage vendor docs, save time</li>
+                            <li>• Experience over checklist mentality</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                <!-- OLD Way -->
+                <div class="bg-stone-900 border border-stone-800 p-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-red-900/50 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-red-400">Inexperienced Validation</h3>
+                            <p class="text-stone-500 text-sm">The Symptom</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 text-stone-400">
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 mt-1">×</span>
+                            <span><strong class="text-white">Focus:</strong> Document everything (Cover-your-ass)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 mt-1">×</span>
+                            <span><strong class="text-white">Metric:</strong> Number of pages / screenshots</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 mt-1">×</span>
+                            <span><strong class="text-white">Risk:</strong> Critical aspects get overlooked</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 mt-1">×</span>
+                            <span><strong class="text-white">Result:</strong> Slow AND unsafe</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- NEW Way -->
+                <div class="bg-gradient-to-br from-blue-900 to-blue-950 border border-blue-700 p-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-300">Performance System Validation</h3>
+                            <p class="text-blue-400 text-sm">Our Approach</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 text-stone-300">
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-400 mt-1">✓</span>
+                            <span><strong class="text-white">Focus:</strong> Critical thoroughly, non-critical efficiently</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-400 mt-1">✓</span>
+                            <span><strong class="text-white">Metric:</strong> Time-to-Value (time to go-live)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-400 mt-1">✓</span>
+                            <span><strong class="text-white">Risk:</strong> Experience shows where real risks lie</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-400 mt-1">✓</span>
+                            <span><strong class="text-white">Result:</strong> Fast AND safe</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 3 Pillars -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8 border border-stone-800 hover:border-blue-600 transition-colors">
+                    <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Critical Thinking</h3>
+                    <p class="text-stone-400 text-sm">Instead of checklists. We understand what the system really does – and know where the real risks are.</p>
+                </div>
+                <div class="text-center p-8 border border-stone-800 hover:border-blue-600 transition-colors">
+                    <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Risk-Based</h3>
+                    <p class="text-stone-400 text-sm">Document what carries risk. Automate what's possible. CSA + GAMP 5 2nd Edition consistently applied.</p>
+                </div>
+                <div class="text-center p-8 border border-stone-800 hover:border-blue-600 transition-colors">
+                    <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Team Integration</h3>
+                    <p class="text-stone-400 text-sm">We work with your team, not alongside it. One language with PM, IT, QA and Business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION: GO-LIVE RESCUE (Emergency Service) === -->
+    <section id="rescue" class="py-24 px-4 bg-gradient-to-br from-red-900 via-red-950 to-stone-950 text-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-red-500 text-white text-sm font-bold uppercase tracking-widest mb-6 animate-pulse">
+                    Emergency Service
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black mb-6">Go-Live Rescue</h2>
+                <p class="text-xl text-red-200 max-w-2xl mx-auto">
+                    Project red? Deadline looming? Validation is the blocker?<br>
+                    <span class="text-white font-bold">We are the cavalry.</span>
+                </p>
+            </div>
+
+            <div class="bg-black/40 border border-red-800 p-8 md:p-12 rounded-lg mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">What we do in 48 hours:</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-400 font-bold">01</span>
+                                <span>Analysis of the validation roadblock</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-400 font-bold">02</span>
+                                <span>Risk assessment cut: What's truly patient-critical?</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-400 font-bold">03</span>
+                                <span>Leverage vendor documentation instead of re-testing everything</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-400 font-bold">04</span>
+                                <span>Action plan for the next 8 weeks</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <div class="inline-block bg-red-600 p-8 rounded-lg">
+                            <p class="text-5xl font-black mb-2">48h</p>
+                            <p class="text-sm uppercase tracking-widest">Initial Analysis</p>
+                        </div>
+                        <p class="mt-6 text-red-300 text-sm">
+                            "Bureaucracy must not keep the patient waiting."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#" target="_blank" class="inline-block bg-red-500 text-white px-10 py-5 text-xl font-bold hover:bg-white hover:text-red-600 transition-all shadow-lg">
+                    Rescue Your Go-Live Now →
+                </a>
+                <p class="mt-4 text-red-300 text-sm">Free initial consultation · Callback within 24h</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION: VISUAL PROOF (Chart) === -->
+    <section class="py-24 px-4 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">The Difference in Numbers</h2>
+            <p class="text-stone-600 mb-12">Inexperienced Validation vs. Performance System Validation</p>
+            
+            <div class="chart-wrapper bg-stone-50 p-8 rounded-lg border border-stone-200">
+                <canvas id="impactChart"></canvas>
+            </div>
+
+            <div class="grid grid-cols-3 gap-8 mt-12">
+                <div class="text-center">
+                    <p class="text-4xl font-black text-blue-700">50%</p>
+                    <p class="text-sm text-stone-600">Faster</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-black text-blue-700">60+</p>
+                    <p class="text-sm text-stone-600">Systems validated</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-black text-blue-700">0</p>
+                    <p class="text-sm text-stone-600">Critical audit findings</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION: PROGRAM EXPERIENCE === -->
+    <section class="py-24 px-4 bg-stone-100">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black mb-4">From Single System to Global Program</h2>
+                <p class="text-lg text-stone-600">Different rules apply for SAP S/4HANA across 12 countries than for a single validation. We can do both.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-8 border border-stone-200 hover:border-blue-600 transition-colors">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Program Strategy</h3>
+                    <p class="text-stone-600 text-sm">Validation Master Plans that fit PMO governance. One language, not two worlds.</p>
+                </div>
+
+                <div class="bg-white p-8 border border-stone-200 hover:border-blue-600 transition-colors">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Multi-Site Coordination</h3>
+                    <p class="text-stone-600 text-sm">Template strategies for consistency. Local adaptations where they make sense.</p>
+                </div>
+
+                <div class="bg-white p-8 border border-stone-200 hover:border-blue-600 transition-colors">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cutover & Go-Live</h3>
+                    <p class="text-stone-600 text-sm">We know what needs to happen on go-live weekend – and make sure everything is in place beforehand.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="px-4 py-2 bg-stone-200 text-stone-700 text-sm font-medium rounded-full">SAP S/4HANA</span>
+                <span class="px-4 py-2 bg-stone-200 text-stone-700 text-sm font-medium rounded-full">EWM</span>
+                <span class="px-4 py-2 bg-stone-200 text-stone-700 text-sm font-medium rounded-full">Veeva Vault</span>
+                <span class="px-4 py-2 bg-stone-200 text-stone-700 text-sm font-medium rounded-full">MasterControl</span>
+                <span class="px-4 py-2 bg-stone-200 text-stone-700 text-sm font-medium rounded-full">LIMS</span>
+                <span class="px-4 py-2 bg-stone-200 text-stone-700 text-sm font-medium rounded-full">MES</span>
+                <span class="px-4 py-2 bg-stone-200 text-stone-700 text-sm font-medium rounded-full">Custom SaaS</span>
+                <span class="px-4 py-2 bg-stone-200 text-stone-700 text-sm font-medium rounded-full">Cloud Systems</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION: TEAM === -->
+    <section id="team" class="py-24 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black mb-4">The Team Behind CSV TO WIN</h2>
+                <p class="text-xl text-stone-600 font-bold">We're not a typical consultancy.</p>
+                <p class="text-stone-500 mt-4 max-w-2xl mx-auto">
+                    No army of consultants working by the book. No overhead for partners you'll never see. 
+                    We're a team that truly understands CSV – and knows how to work with people.
+                </p>
+            </div>
+
+            <!-- Team Image Placeholder -->
+            <div class="mb-16">
+                <div class="relative aspect-[21/9] bg-gradient-to-br from-stone-100 to-stone-200 rounded-2xl overflow-hidden border border-stone-200 shadow-lg">
+                    <!-- Placeholder Content -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-stone-400">
+                        <svg class="w-16 h-16 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        <span class="text-sm font-medium">TEAM IMAGE PLACEHOLDER</span>
+                        <span class="text-xs mt-1">Recommended: 2100 × 900px</span>
+                    </div>
+                    <!-- Gradient Overlay for real image -->
+                    <!-- <img src="team.jpg" alt="Daniel Herrmann Consulting Team" class="w-full h-full object-cover"> -->
+                    <!-- <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div> -->
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-stone-50 p-6 border border-stone-200 hover:border-blue-600 transition-colors text-center">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+                    </div>
+                    <h3 class="font-bold mb-2">Trained Specialists</h3>
+                    <p class="text-stone-600 text-sm">Relevant degree + Life Sciences experience. No career changers.</p>
+                </div>
+                <div class="bg-stone-50 p-6 border border-stone-200 hover:border-blue-600 transition-colors text-center">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="font-bold mb-2">Technically Proficient</h3>
+                    <p class="text-stone-600 text-sm">ERP logic, QMS workflows, cloud architectures. We speak your language.</p>
+                </div>
+                <div class="bg-stone-50 p-6 border border-stone-200 hover:border-blue-600 transition-colors text-center">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h3 class="font-bold mb-2">Team Players</h3>
+                    <p class="text-stone-600 text-sm">We integrate into your team. Clear communication with PMs, IT, QA, Business.</p>
+                </div>
+                <div class="bg-stone-50 p-6 border border-stone-200 hover:border-blue-600 transition-colors text-center">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    </div>
+                    <h3 class="font-bold mb-2">Pragmatists</h3>
+                    <p class="text-stone-600 text-sm">The smart solution, not the bureaucratic one. Compliant AND efficient.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-6 text-center">
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <p class="text-3xl font-black text-blue-700">60+</p>
+                    <p class="text-sm text-stone-600">Systems in 8+ countries</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <p class="text-3xl font-black text-blue-700">15+</p>
+                    <p class="text-sm text-stone-600">Years of experience</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <p class="text-lg font-bold text-blue-700">German Precision.</p>
+                    <p class="text-sm text-stone-600">Global Execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION: FILTER (Who we work with) === -->
+    <section id="filter" class="py-24 px-4 bg-stone-950 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-black mb-4">Who We Work Well With</h2>
+                <p class="text-stone-400">We don't work with everyone. We filter radically.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- TARGET -->
+                <div class="bg-green-950/30 border border-green-800 p-8">
+                    <h3 class="text-xl font-bold text-green-400 mb-6 flex items-center gap-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        The "Pragmatic Doer"
+                    </h3>
+                    <ul class="space-y-4 text-stone-300">
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-400 mt-1">•</span>
+                            <span>Project leads who have a go-live date – and want to hit it</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-400 mt-1">•</span>
+                            <span>IT managers who accept CSV as necessary, but not as an end in itself</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-400 mt-1">•</span>
+                            <span>QA leaders who want pragmatic compliance</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-400 mt-1">•</span>
+                            <span>Scale-ups that need CSV expertise without enterprise overhead</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-400 mt-1">•</span>
+                            <span>Global programs that need a strategy fitting their governance</span>
+                        </li>
+                    </ul>
+                    <p class="mt-6 text-green-300 italic text-sm border-t border-green-800 pt-4">
+                        "I need this system live in June, no matter what."
+                    </p>
+                </div>
+
+                <!-- AVOID -->
+                <div class="bg-red-950/30 border border-red-800 p-8">
+                    <h3 class="text-xl font-bold text-red-400 mb-6 flex items-center gap-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        The "Bureaucratic Preserver"
+                    </h3>
+                    <ul class="space-y-4 text-stone-300">
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-400 mt-1">•</span>
+                            <span>Teams that confuse "thoroughness" with "more documentation"</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-400 mt-1">•</span>
+                            <span>Endless review cycles because nobody wants to decide</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-400 mt-1">•</span>
+                            <span>"We've always done it this way" as an argument</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-400 mt-1">•</span>
+                            <span>Fear of the auditor instead of focus on results</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-400 mt-1">•</span>
+                            <span>Compliance means "prove every click with a screenshot"</span>
+                        </li>
+                    </ul>
+                    <p class="mt-6 text-red-300 italic text-sm border-t border-red-800 pt-4">
+                        "The template must not be changed."
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-2xl font-bold text-white mb-4">Do you recognize yourself in the green zone?</p>
+                <a href="#" target="_blank" class="inline-block bg-green-600 text-white px-10 py-5 text-xl font-bold hover:bg-white hover:text-green-700 transition-all">
+                    Let's Talk →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION: FAQ (General FAQ) === -->
+    <section id="faq" class="py-24 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-stone-600">Answers to the most important questions from our clients.</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- FAQ 1 -->
+                <div class="border border-stone-200 p-6 hover:border-blue-600 transition-colors">
+                    <h3 class="font-bold text-lg mb-3">"Why is our validation taking so long?"</h3>
+                    <p class="text-stone-600">
+                        In 90% of cases, it's about <span class="font-bold text-black">wrong focus</span>: Time is spent on non-critical documentation (screenshots of standard functions, over-documentation of low-risk features) while truly critical aspects – the ones the auditor wants to see – are neglected. This results from lack of experience. We know exactly where to look: critical processes thoroughly, non-critical ones efficiently.
+                    </p>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-stone-200 p-6 hover:border-blue-600 transition-colors">
+                    <h3 class="font-bold text-lg mb-3">"How quickly can you start – and how fast are you finished?"</h3>
+                    <p class="text-stone-600">
+                        <span class="font-bold text-black">Start:</span> For urgent projects within 1-2 weeks. For Go-Live Rescue: 48h for initial analysis.
+                        <span class="font-bold text-black">Duration:</span> Depends on scope, but our goal is always 50% faster than industry average. Example: A standard SaaS validation that normally takes 6 months, we complete in 3.
+                    </p>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-stone-200 p-6 hover:border-blue-600 transition-colors">
+                    <h3 class="font-bold text-lg mb-3">"Do you work on-site or remote?"</h3>
+                    <p class="text-stone-600">
+                        <span class="font-bold text-black">Both.</span> We typically start with an on-site kickoff (1-2 days) to understand the team, system, and context. The actual work then happens hybrid: remote for documentation and tests, on-site for reviews, workshops, and go-live. For international projects, we work 90% remote – we've perfected this across 60+ systems in 8+ countries.
+                    </p>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="border border-stone-200 p-6 hover:border-blue-600 transition-colors">
+                    <h3 class="font-bold text-lg mb-3">"What sets you apart from other CSV consultants?"</h3>
+                    <p class="text-stone-600">
+                        <span class="font-bold text-black">Experience + Pragmatism.</span> We're not documentation machines billing by the day. We deliver results: your system goes live. Our approach – Performance System Validation – focuses on what really matters. Critical processes are thoroughly tested, non-critical ones handled efficiently. This saves time and money without creating compliance risks.
+                    </p>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="border border-stone-200 p-6 hover:border-blue-600 transition-colors">
+                    <h3 class="font-bold text-lg mb-3">"The FDA/EMA requires documented evidence for everything!"</h3>
+                    <p class="text-stone-600">
+                        <span class="font-bold text-black">Myth.</span> The FDA released the CSA Guidance (Computer Software Assurance) in 2022. It explicitly calls for fewer screenshots and more Critical Thinking. GAMP 5 2nd Edition goes in the same direction. Our approach is closer to current regulations than many old SOPs that still rely on "document everything."
+                    </p>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="border border-stone-200 p-6 hover:border-blue-600 transition-colors">
+                    <h3 class="font-bold text-lg mb-3">"Do we really need external help? We have QA."</h3>
+                    <p class="text-stone-600">
+                        <span class="font-bold text-black">Depends.</span> If your QA has capacity, knows the systems (SAP, Veeva, cloud tools), and has experience with CSA/Risk-Based Validation – do it internally. If at least one of these points is missing, you'll save time and avoid costly mistakes with us. We integrate into your team – we don't replace it.
+                    </p>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="border border-stone-200 p-6 hover:border-blue-600 transition-colors">
+                    <h3 class="font-bold text-lg mb-3">"You're more expensive than the freelancer we usually use."</h3>
+                    <p class="text-stone-600">
+                        <span class="font-bold text-black">Per day, maybe.</span> But the freelancer asks every day what to do. They bill hours. We deliver results. We're finished in 3 months while the freelancer is still formatting documents after 9 months. Do the math on who's more expensive in the end – including your own time for coordination.
+                    </p>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="border border-stone-200 p-6 hover:border-blue-600 transition-colors">
+                    <h3 class="font-bold text-lg mb-3">"Can you also train our team?"</h3>
+                    <p class="text-stone-600">
+                        <span class="font-bold text-black">Yes.</span> We offer workshops on CSA, Risk-Based Validation, and system-specific topics (SAP, Veeva, etc.). But the best knowledge transfer happens through collaboration: when we run a project together, your team learns our methodology automatically. After 2-3 projects, you'll be significantly more self-sufficient.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === FINAL CTA === -->
+    <section class="py-32 px-4 bg-black text-white text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 via-blue-400 to-cyan-500"></div>
+
+        <div class="relative z-10 max-w-2xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black mb-6">We Enable the Go-Live.</h2>
+            <p class="text-xl text-stone-400 mb-4">
+                Computer System Validation – Made to Win.<br>
+                Powered by Performance System Validation.
+            </p>
+            <p class="text-stone-500 mb-10">
+                Speed · Safety · Sanity
+            </p>
+            
+            <a href="#" target="_blank" class="inline-block bg-white text-black px-10 py-5 text-xl font-bold hover:bg-blue-700 hover:text-white transition-all transform hover:-translate-y-1 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.2)]">
+                Book a Meeting →
+            </a>
+            
+            <p class="mt-8 text-sm text-stone-600 font-mono">
+                Free initial consultation · No sales pitch, real advice.
+            </p>
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer class="bg-stone-950 text-stone-500 py-12 px-4 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <span class="font-bold text-white block mb-2">DANIEL HERRMANN CONSULTING</span>
+                <p class="text-xs">Computer System Validation – Made to Win<br>© 2025 All rights reserved.</p>
+            </div>
+            
+            <div class="flex gap-6 text-sm">
+                <a href="#" class="hover:text-white transition-colors">Imprint</a>
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const ctx = document.getElementById('impactChart').getContext('2d');
+            
+            const timelineData = {
+                labels: ['Preparation', 'Documentation', 'Testing', 'Approval'],
+                datasets: [
+                    {
+                        label: 'Inexperienced Validation (Months)',
+                        data: [2, 5, 4, 3],
+                        backgroundColor: '#d6d3d1',
+                        borderRadius: 4,
+                        barPercentage: 0.6
+                    },
+                    {
+                        label: 'Performance Validation (Months)',
+                        data: [1, 1.5, 2, 0.5],
+                        backgroundColor: '#1d4ed8',
+                        borderRadius: 4,
+                        barPercentage: 0.6
+                    }
+                ]
+            };
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: timelineData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { 
+                            position: 'bottom',
+                            labels: { font: { family: "'Inter', sans-serif" } }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: '#f5f5f4' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    },
+                    animation: {
+                        duration: 2000,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
